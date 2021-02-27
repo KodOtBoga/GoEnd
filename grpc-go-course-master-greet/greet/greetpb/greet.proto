@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package="gitlab.com\\tleuzhan13\\grpc-go-course\\greet\\greetpb;greetpb";
+
+message Dividing{
+  int64 number = 1;
+}
+
+message DivideRequest {
+  Dividing greeting = 1;
+}
+
+message DivideResponse {
+  string result = 1;
+}
+
+service GreetService{
+  rpc Divide(DivideRequest) returns (stream DivideResponse) {};
+}
